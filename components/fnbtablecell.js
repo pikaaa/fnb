@@ -22,6 +22,10 @@ class FnBTableCell extends Component{
     };
   }
 
+  addItem = () => {
+    console.log('adding item');
+  }
+
   render(){
     return(
       <FlatList
@@ -37,10 +41,15 @@ class FnBTableCell extends Component{
               <View style={styles.fnbDetails}>
                 <Text style={styles.deals}>{deals}</Text>
                 <Text numberOfLines={2} style={styles.commodities}>{commodities}</Text>
+                <TouchableOpacity onPress={this.addItem} style={styles.addButton}>
+                  <View>
+                    <Text style= {{color: '#0078FF'}}>Add</Text>
+                  </View>
+                </TouchableOpacity>
                 <View style= {styles.pricingRow}>
                   <Text>{discountedPrice}</Text>
-                  <Text>{actualPrice}</Text>
-
+                  <Text style={styles.actualPrice}>  {actualPrice}</Text>
+                  <Text style={styles.discountPercent}> {discountPercent}%off</Text>
                 </View>
               </View>
             </View>
@@ -64,7 +73,8 @@ const styles = StyleSheet.create({
   },
   fnbDetails: {
     flex: 3,
-    margin: 8
+    margin: 8,
+    // backgroundColor: 'blue'
   },
   separator: {
     backgroundColor: '#F5F5FA',
@@ -80,7 +90,31 @@ const styles = StyleSheet.create({
   pricingRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 100
+    bottom: 0,
+    position: 'absolute',
+    // backgroundColor: 'white'
+  },
+  actualPrice: {
+    color: '#999999',
+    textDecorationLine: 'line-through',
+  },
+  discountPercent: {
+    color: '#429D1C'
+  },
+  addButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: '#0078FF',
+    right: 0,
+    bottom: 0,
+    position: 'absolute',
+    marginBottom: 0,
+    // position: 'absolute',
+    marginRight: 0,
+    width: 70,
+    height: 27
   }
 });
 export default FnBTableCell;

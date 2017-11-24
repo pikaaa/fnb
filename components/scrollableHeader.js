@@ -44,7 +44,7 @@ class ScrollableHeader extends Component{
           )}}
         />
         <View style={styles.detailedView}>
-          <Text style={{color: 'white'}}>{this.state.data[this.state.selectedIndex]} </Text>
+          <Text style={{color: 'black'}}>{this.state.data[this.state.selectedIndex]} </Text>
           <FnBTableCell/>
         </View>
       </View>
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   },
   detailedView: {
     flex: 14,
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
     // marginBottom: 20,
     // marginTop: 10,
   }
