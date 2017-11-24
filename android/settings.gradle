@@ -1,0 +1,3 @@
+rootProject.name = 'fnb'
+
+include ':app'
