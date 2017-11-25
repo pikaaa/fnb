@@ -19,8 +19,9 @@ class ScrollableHeader extends Component{
   handleSelection = (item) => {
     console.log(item.item);
     this.setState({selectedIndex: item.index});
+    this.listRef.scrollToIndex({index: item.index, animated: true, viewPosition: 1});
   }
-
+captureRef = (ref) => { this.listRef = ref; };
   render(){
     return(
       <View style = {styles.container}>
@@ -29,6 +30,7 @@ class ScrollableHeader extends Component{
         showsHorizontalScrollIndicator={false}
         extraData={this.state}
         style={styles.header}
+        ref={this.captureRef}
           data = {this.state.data}
           renderItem = {(item) => {
             debugger;
@@ -39,7 +41,7 @@ class ScrollableHeader extends Component{
                     <Text>{item.item}</Text>
                   </View>
                   {item.index == this.state.selectedIndex ? <View style={styles.selectedElement}/> : null}
-              </View>
+                </View>
             </TouchableOpacity>
           )}}
         />
