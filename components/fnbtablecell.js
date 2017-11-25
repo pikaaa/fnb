@@ -26,16 +26,21 @@ class FnBTableCell extends Component{
     console.log('adding item');
   }
 
+  renderSeparator = () => {
+    return(
+      <View style={styles.separator}/>
+    );
+  }
   render(){
     return(
       <FlatList
       showsHorizontalScrollIndicator={false}
       extraData={this.state}
-        data = {this.state.data}
-        renderItem = {(item) => {
+      data = {this.state.data}
+      ItemSeparatorComponent = {this.renderSeparator}
+      renderItem = {(item) => {
           let {deals, commodities, actualPrice, discountPercent,discountedPrice} = this.state.detailedData
           return(
-            <View>
             <View style={styles.cell}>
               <Image source={{uri: 'https://in.bmscdn.com/marketingspots/banner/image_1_320x128_.jpg'}} style = {styles.image}/>
               <View style={styles.fnbDetails}>
@@ -52,8 +57,6 @@ class FnBTableCell extends Component{
                   <Text style={styles.discountPercent}> {discountPercent}%off</Text>
                 </View>
               </View>
-            </View>
-            <View style={styles.separator}/>
             </View>
         )}}
       />
