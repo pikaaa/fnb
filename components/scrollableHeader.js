@@ -17,8 +17,6 @@ class ScrollableHeader extends Component{
     this.state = {
       data: ['ALL','COMBO', 'SNACKS', 'BEVERAGES'],
       selectedIndex: 0,
-      // panResponder: panResponder,
-      // position: position
     };
   }
 

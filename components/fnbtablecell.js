@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   cell: {
     flexDirection: 'row',
 // flex: 1,
+
     backgroundColor: 'yellow',
     height: 120
   },
