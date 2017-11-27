@@ -42,23 +42,13 @@ captureRef = (ref) => { this.scrollViewRef = ref;};
         showsHorizontalScrollIndicator={false}
         ref={this.captureRef}
         >
-
-         <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}} id = {0}>
-            <Text style={{color: 'black'}}>{this.state.data[this.props.selectedIndex]} </Text>
-            <FnBTableCell/>
-          </View>
-          <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}} id = {1}>
-             <Text style={{color: 'black'}}>{this.state.data[this.props.selectedIndex]} </Text>
-             <FnBTableCell/>
-           </View>
-           <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}}>
-              <Text style={{color: 'black'}}>{this.state.data[this.props.selectedIndex]} </Text>
-              <FnBTableCell/>
-            </View>
-            <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}} id = {3}>
+        {this.state.data.map(
+         () =>
+            <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}} id = {0}>
                <Text style={{color: 'black'}}>{this.state.data[this.props.selectedIndex]} </Text>
                <FnBTableCell/>
              </View>
+        )}
        </ScrollView>
        </View>
     );
