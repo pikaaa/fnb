@@ -21,11 +21,13 @@ class ScrollableHeader extends Component{
   }
 
   handleSelection = (item) => {
-    console.log(item.item);
+    console.log(item.item+ ' clicked on index ' + item.index);
     this.setState({selectedIndex: item.index});
     this.listRef.scrollToIndex({index: item.index, animated: true, viewPosition: 1});
   }
-captureRef = (ref) => { this.listRef = ref; };
+captureRef = (ref) => {
+  debugger;
+   this.listRef = ref; };
   render(){
     return(
       <View style = {styles.container}>
@@ -37,7 +39,7 @@ captureRef = (ref) => { this.listRef = ref; };
           ref={this.captureRef}
             data = {this.state.data}
             renderItem = {(item) => {
-              debugger;
+
               return(
               <TouchableOpacity onPress={this.handleSelection.bind(this,item)}>
                 <View style = {styles.headerElement}>

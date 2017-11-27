@@ -28,23 +28,26 @@ class AnimatedDetailedView extends Component{
       // position: position
     };
   }
-
+captureRef = (ref) => { this.scrollViewRef = ref;};
   render(){
+    console.log('scrollViewRef: ' + this.scrollViewRef +', index: ' + this.props.selectedIndex);
     return(
+      <View style={{ flex: 1 }}>
+    { this.scrollViewRef != null ? this.scrollViewRef.scrollTo({x: this.props.selectedIndex * Dimensions.get('window').width,  animated: true}) : null}
        <ScrollView
        contentContainerStyle={styles.scrollStyle}
         horizontal
         pagingEnabled
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
-        ref={(ref) => { this.ScrollView = ref; }}
+        ref={this.captureRef}
         >
 
-         <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}}>
+         <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}} id = {0}>
             <Text style={{color: 'black'}}>{this.state.data[this.props.selectedIndex]} </Text>
             <FnBTableCell/>
           </View>
-          <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}}>
+          <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}} id = {1}>
              <Text style={{color: 'black'}}>{this.state.data[this.props.selectedIndex]} </Text>
              <FnBTableCell/>
            </View>
@@ -52,11 +55,12 @@ class AnimatedDetailedView extends Component{
               <Text style={{color: 'black'}}>{this.state.data[this.props.selectedIndex]} </Text>
               <FnBTableCell/>
             </View>
-            <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}}>
+            <View style = {{flexDirection: 'column', width: Dimensions.get('window').width}} id = {3}>
                <Text style={{color: 'black'}}>{this.state.data[this.props.selectedIndex]} </Text>
                <FnBTableCell/>
              </View>
        </ScrollView>
+       </View>
     );
   }
 }
