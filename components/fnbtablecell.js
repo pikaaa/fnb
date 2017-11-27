@@ -67,8 +67,9 @@ class FnBTableCell extends Component{
 const styles = StyleSheet.create({
   cell: {
     flexDirection: 'row',
-    flex: 1,
-    height: 120,
+// flex: 1,
+    backgroundColor: 'yellow',
+    height: 120
   },
   image: {
     flex: 1,
