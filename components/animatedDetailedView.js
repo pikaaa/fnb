@@ -38,6 +38,7 @@ captureRef = (ref) => { this.scrollViewRef = ref;};
        contentContainerStyle={styles.scrollStyle}
         horizontal
         pagingEnabled
+        scrollEnabled = {false}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
         ref={this.captureRef}
