@@ -4,15 +4,24 @@ import { View,
   FlatList,
   StyleSheet,
   TouchableOpacity,
+  PanResponder,
   Image } from 'react-native';
 import FnBTableCell from './fnbtablecell';
 
 class ScrollableHeader extends Component{
   constructor(props) {
     super(props);
+    const panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderMove: (event, gesture) => {
+        console.log(gesture);
+      },
+      onPanResponderRelease: () => {}
+    })
     this.state = {
       data: ['ALL','COMBO', 'SNACKS', 'BEVERAGES'],
-      selectedIndex: 0
+      selectedIndex: 0,
+      panResponder: panResponder
     };
   }
 
