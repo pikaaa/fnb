@@ -28,6 +28,7 @@ captureRef = (ref) => { this.listRef = ref; };
         <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
+        alwaysBounceHorizontal={false}
         extraData={this.state}
         style={styles.header}
         ref={this.captureRef}
